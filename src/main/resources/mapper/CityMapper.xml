@@ -4,10 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.catt.mybatis.plus.generator.entity.City">
-        <id column="id" property="id" />
-        <result column="city_id" property="cityId" />
-        <result column="city_name" property="cityName" />
-        <result column="province_id" property="provinceId" />
+        <id column="id" property="id"/>
+        <result column="city_id" property="cityId"/>
+        <result column="city_name" property="cityName"/>
+        <result column="province_id" property="provinceId"/>
     </resultMap>
 
+    <select id="listCitiesCustomize" resultMap="BaseResultMap">
+      SELECT * FROM t_city WHERE city_name LIKE '%市'
+    </select>
 </mapper>

@@ -4,7 +4,10 @@ import com.catt.mybatis.plus.generator.entity.City;
 import com.catt.mybatis.plus.generator.mapper.CityMapper;
 import com.catt.mybatis.plus.generator.service.CityService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CityServiceImpl extends ServiceImpl<CityMapper, City> implements CityService {
 
+    @Autowired
+    private CityMapper mapper;
+
+    @Override
+    public List<City> listCitiesCustomize() {
+        return mapper.listCitiesCustomize();
+    }
 }
